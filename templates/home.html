@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      #form_label {
+        margin-top: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="{{ url_for('admin_login') }}">Admin </a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <form
+        method="POST"
+        action="{{ url_for('uploader') }}"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="formFile" class="form-label" id="form_label"
+            >Upload File</label
+          >
+          <input class="form-control" type="file" name="file" id="file" />
+          <br />
+          <input
+            class="btn btn-md btn-success mt-4"
+            style="float: left"
+            type="submit"
+          />
+        </div>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      #form1{
+        width: 600px;
+        height: 300px;
+        margin: auto;
+        margin-top: 150px;
+        padding: 10px;
+        background-color: lightgrey;
+        border-radius: 10px;
+      }
+      h1{
+    
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+      }
+      input{
+       width: 50%;
+        margin: 4px 2px 8px 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+      
+        <ul class="nav navbar-nav">
+          <li class=""><a href="{{ url_for('upload_file') }}">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="">Admin</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      
+      <form
+        method="POST"
+        action="{{ url_for('login') }}"
+        enctype="multipart/form-data"
+        id="form1"
+      >
+      <center> <h1>Admin Login</h1></center>
+        <div class="form-outline mb-4">
+          <label class="form-label" for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+          />
+         
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+          />
+         
+        </div>
+        <input type="submit" class="btn btn-md btn-success"/>
+        </div>
+       
+      </form>
+    </div>
+  </body>
+</html>

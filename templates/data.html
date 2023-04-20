@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="{{ url_for('upload_file') }}">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="">Welcome ! {{ session['username'] }}</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav" style="float: right">
+          <li class=""><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Fine Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        {% if file %} {% set count = 1 %} {% for i in file %}
+        <tbody>
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ i }}</td>
+            <td>
+              <button class="btn btn-sm">
+                <a
+                  class="btn btn-sm btn-success"
+                  href="{{url_for('download',name= i) }}"
+                  >Download</a
+                >
+              </button>
+              <button class="btn btn-sm">
+                <a class="btn btn-success" href="{{url_for('open',name= i) }}"
+                  >Open</a
+                >
+              </button>
+            </td>
+          </tr>
+        </tbody>
+
+        {% endfor %} {% endif %}
+      </table>
+    </div>
+  </body>
+</html>
